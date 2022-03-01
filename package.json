@@ -1,0 +1,33 @@
+{
+  "name": "departments.js",
+  "version": "0.0.1",
+  "description": "JS API for the Middlebury list of departments at https://ssb-prod.ec.middlebury.edu/PNTR/saturn_midd.course_catalog_utlq.catalog_page_by_dept?p_term=202210&",
+  "main": "./lib/scraper.js",
+  "scripts": {
+    "test": "node ./__tests__/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicholas-Sliter/departments.js.git"
+  },
+  "keywords": [
+    "Middlebury", "Scraper"
+  ],
+  "author": "Nicholas Sliter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nicholas-Sliter/departments.js/issues"
+  },
+  "homepage": "https://github.com/Nicholas-Sliter/departments.js#readme",
+  "dependencies": {
+    "node-fetch": "^3.2.0",
+    "node-html-parser": "^5.2.0"
+  },
+  "devDependencies": {
+    "uvu": "^0.5.3"
+  },
+  "type": "module",
+  "exports": {
+    "default": "./lib/scraper.js"
+  }
+}
