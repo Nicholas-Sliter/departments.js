@@ -1,48 +1,31 @@
-import { PERSON_URL } from "./scraper.js";
+import { getDepartmentsURL } from "./utils.js";
 import { parse } from "node-html-parser";
 import fetch from "node-fetch";
 
-export default class Person {
-  id: string;
+export default class Department {
   code: string;
   name: string;
 
-  /*
-  constructor(id) {
-    this.id = id;
+  constructor(code: string, name: string) {
+      this.code = code;
+      this.name = name;
   }
-  async init(){
-    await this.__getPersonDetailsById(this.id);
-  }
-  */
 
-
-  /*
-  private async __getPersonDetailsById(id: string) {
-    const res = await fetch(`${PERSON_URL}?webid=${id}`);
+  static async getDepartments(season: string) {
+    const res = await fetch(getDepartmentsURL(season));
     const html = await res.text();
     const root = parse(html);
-    const name = root
-      .querySelector("#rptProperties_ctl00_lblPropertyValue")
-      .text.split(", ");
-    this.firstName = name[1];
-    this.lastName = name[0];
-    this.email = root.querySelector(
-      "#rptProperties_ctl02_lblPropertyValue"
-    ).text;
-    this.type = root.querySelector("#rptProperties_ctl01_lblPropertyValue").text;
-
-    if (this.type === "Student") {
-      this.gradYear = root.querySelector(
-        "#rptProperties_ctl06_lblPropertyValue"
-      )?.text ?? undefined;
-    }
-
-    if (this.type === "Faculty") {
-      this.department = root.querySelector(
-        "#rptProperties_ctl06_lblPropertyValue"
-      ).text;
-    }
+    const depts = [];
+    var el_code: string;
+    var el_name: string;
+    root.querySelectorAll("li > a").forEach(el => {
+        el_name = el.childNodes[0].rawText;
+        el_code = el.rawAttrs.substring(el.rawAttrs.length - 5, el.rawAttrs.length-1);
+        if (el_code == "=ART") {
+            el_code = "ART";
+        }
+        depts.push(new Department(el_code, el_name));
+    })
+    return depts;
   }
-  */
 }

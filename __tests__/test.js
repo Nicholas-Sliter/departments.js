@@ -1,6 +1,6 @@
 import {test} from 'uvu';
 import * as assert from 'uvu/assert';
-import { PersonScraper } from "../lib/scraper.js";
+import { DepartmentScraper, PersonScraper } from "../lib/scraper.js";
 
 test("Student scrape", async () => {
   const S = new PersonScraper("nsliter@middlebury.edu");
@@ -39,6 +39,12 @@ test("Faculty scrape", async () => {
   assert.is(S1.person.gradYear, undefined);
   assert.is(S1.person.type, "Faculty");
   assert.is(S1.person.department, "Computer Science");
+});
+
+test("Departments scrape", async () => {
+    const Ds = await DepartmentScraper.getDepartments();
+    assert.is(Ds[0].code, "ANTH");
+    assert.is(Ds[0].name, "Anthropology");
 });
 
 
