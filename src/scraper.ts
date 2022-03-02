@@ -1,7 +1,6 @@
 import fetch from "node-fetch";
 import { parse } from "node-html-parser";
 import Person from "./person.js";
-import { viewstate, eventvalidation } from "./constants.js";
 
 export const DIRECTORY_URL = "https://directory.middlebury.edu/";
 export const SEARCH_URL = "https://directory.middlebury.edu/default.aspx";

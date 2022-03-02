@@ -1,14 +1,20 @@
 
-export const paramMapping = {
-  lastName: "ctl00$ctl00$PageContent$PageContent$middDirectoryForm$txtLastName",
-  firstName:
-    "ctl00$ctl00$PageContent$PageContent$middDirectoryForm$txtFirstName",
-  email:
-    "ctl00$ctl00$PageContent$PageContent$middDirectoryForm$txtSamaccountname",
-  search: "ctl00$ctl00$PageContent$PageContent$middDirectoryForm$btnSearch",
-};
+//https://ssb-prod.ec.middlebury.edu/PNTR/saturn_midd.course_catalog_utlq.catalog_page_by_dept?p_term=202210&
+const DEPARTMENTS_URL =
+  "https://ssb-prod.ec.middlebury.edu/PNTR/saturn_midd.course_catalog_utlq.catalog_page_by_dept";
 
-export const DIRECTORY_URL = "https://directory.middlebury.edu/";
-export const SEARCH_URL = "https://directory.middlebury.edu/default.aspx";
-export const PERSON_URL = "https://directory.middlebury.edu/GetRecord.aspx";
 
+ const seasons: object = {
+   "F": "90",
+   "W": "10",
+   "S": "20",
+ };
+
+
+const getTermCodeFromSeason = (season: string) => {
+    return `20${season.substring(1)}${seasons[season.substring(0,1)]}`;
+  }
+
+export function getDepartmentsURL(season: string) {
+  return `${DEPARTMENTS_URL}?p_term=${getTermCodeFromSeason(season)}&`;
+}
