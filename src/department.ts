@@ -12,8 +12,8 @@ export default class Department {
   }
 
   static parseDepartmentHTML(el) {
-    var el_name: string = el.childNodes[0].rawText;
-    var el_code: string = el.rawAttrs.substring(el.rawAttrs.length - 5, el.rawAttrs.length-1);
+    const el_name: string = el.childNodes[0].rawText;
+    let el_code: string = el.rawAttrs.substring(el.rawAttrs.length - 5, el.rawAttrs.length-1);
     if (el_code == "=ART") {
         el_code = "ART";
     }

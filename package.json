@@ -1,6 +1,6 @@
 {
   "name": "departments.js",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "JS API for the Middlebury list of departments at https://ssb-prod.ec.middlebury.edu/PNTR/saturn_midd.course_catalog_utlq.catalog_page_by_dept?p_term=202210&",
   "main": "./lib/scraper.js",
   "scripts": {
