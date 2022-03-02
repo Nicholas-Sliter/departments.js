@@ -16,5 +16,5 @@ const getTermCodeFromSeason = (season: string) => {
   }
 
 export function getDepartmentsURL(season: string) {
-  return `${DEPARTMENTS_URL}?p_term=${getTermCodeFromSeason(season)}&`;
+  return `${DEPARTMENTS_URL}?p_term=${getTermCodeFromSeason(season)}`;
 }
