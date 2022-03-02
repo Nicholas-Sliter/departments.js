@@ -1,4 +1,4 @@
-import { PERSON_URL } from "./utils.js";
+import { PERSON_URL } from "./scraper.js";
 import { parse } from "node-html-parser";
 import fetch from "node-fetch";
 

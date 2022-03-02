@@ -29,8 +29,8 @@ export class Scraper {
 
     const urlEncoded = new URLSearchParams();
 
-    urlEncoded.append("__VIEWSTATE", viewstate);
-    urlEncoded.append("__EVENTVALIDATION", eventvalidation);
+    // urlEncoded.append("__VIEWSTATE", viewstate);
+    // urlEncoded.append("__EVENTVALIDATION", eventvalidation);
     urlEncoded.append(
       "ctl00$ctl00$PageContent$PageContent$middDirectoryForm$txtSamaccountname",
       email
