@@ -13,7 +13,7 @@ export default class Scraper {
   }
   
   public async init(){
-    this.departments = this.getDepartments(this.season); 
+    this.departments = await this.getDepartments(this.season); 
   }
   
   static async getDepartments(season: string): Promise<Department[]> {
