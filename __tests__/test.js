@@ -1,9 +1,9 @@
 import {test} from 'uvu';
 import * as assert from 'uvu/assert';
-import { Scraper } from "../lib/scraper.js";
+import { PersonScraper } from "../lib/scraper.js";
 
 test("Student scrape", async () => {
-  const S = new Scraper("nsliter@middlebury.edu");
+  const S = new PersonScraper("nsliter@middlebury.edu");
   await S.init();
 
   console.log(S.person);
@@ -18,7 +18,7 @@ test("Student scrape", async () => {
 
 
 test("Student scrape with ID", async () => {
-  const S = new Scraper("", "26A0780B00340F2FBDC28578D24F3AA5");
+  const S = new PersonScraper("", "26A0780B00340F2FBDC28578D24F3AA5");
   await S.init();
 
   assert.is(S.person.lastName, "Sliter");
@@ -30,7 +30,7 @@ test("Student scrape with ID", async () => {
 });
 
 test("Faculty scrape", async () => {
-  const S1 = new Scraper("avaccari@middlebury.edu");
+  const S1 = new PersonScraper("avaccari@middlebury.edu");
   await S1.init();
 
   assert.is(S1.person.lastName, "Vaccari");

@@ -6,7 +6,7 @@ export const DIRECTORY_URL = "https://directory.middlebury.edu/";
 export const SEARCH_URL = "https://directory.middlebury.edu/default.aspx";
 export const PERSON_URL = "https://directory.middlebury.edu/GetRecord.aspx";
 
-export class Scraper {
+export class PersonScraper {
   email?: string;
   person: Person;
   id?: string;
