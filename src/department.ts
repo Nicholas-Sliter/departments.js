@@ -11,21 +11,12 @@ export default class Department {
       this.name = name;
   }
 
-  static async getDepartments(season: string) {
-    const res = await fetch(getDepartmentsURL(season));
-    const html = await res.text();
-    const root = parse(html);
-    const depts = [];
-    var el_code: string;
-    var el_name: string;
-    root.querySelectorAll("li > a").forEach(el => {
-        el_name = el.childNodes[0].rawText;
-        el_code = el.rawAttrs.substring(el.rawAttrs.length - 5, el.rawAttrs.length-1);
-        if (el_code == "=ART") {
-            el_code = "ART";
-        }
-        depts.push(new Department(el_code, el_name));
-    })
-    return depts;
+  static parseDepartmentHTML(el) {
+    var el_name: string = el.childNodes[0].rawText;
+    var el_code: string = el.rawAttrs.substring(el.rawAttrs.length - 5, el.rawAttrs.length-1);
+    if (el_code == "=ART") {
+        el_code = "ART";
+    }
+    return new Department(el_code, el_name);
   }
 }

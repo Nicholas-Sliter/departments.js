@@ -12,7 +12,7 @@ const DEPARTMENTS_URL =
 
 
 const getTermCodeFromSeason = (season: string) => {
-    return `2020${season.substring(1)}${seasons[season.substring(0,1)]}`;
+    return `20${season.substring(1)}${seasons[season.substring(0,1)]}`;
   }
 
 export function getDepartmentsURL(season: string) {

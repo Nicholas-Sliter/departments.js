@@ -13,16 +13,15 @@ export default class Scraper {
   }
   
   public async init(){
-    this.departments = await this.getDepartments(this.season); 
+    this.departments = await Scraper.getDepartments(this.season); 
   }
   
   static async getDepartments(season: string): Promise<Department[]> {
-       const departments: Department[] = [];
-    
-      //do fetch here and split the list the departments class then parse the html for each department
-    
-    
-   
-     return departments;
+    const departments: Department[] = [];
+    const res = await fetch(getDepartmentsURL(season));
+    const html = await res.text();
+    const root = parse(html);
+    root.querySelectorAll("li > a").forEach(el => departments.push(Department.parseDepartmentHTML(el)));
+    return departments;
   }
 }
