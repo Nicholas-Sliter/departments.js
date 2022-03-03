@@ -18,3 +18,11 @@ const getTermCodeFromSeason = (season: string) => {
 export function getDepartmentsURL(season: string) {
   return `${DEPARTMENTS_URL}?p_term=${getTermCodeFromSeason(season)}`;
 }
+
+
+
+
+export const abbreviationsMap: object = {
+  "Int'l": "International",
+  "Fem": "Feminist",
+};
