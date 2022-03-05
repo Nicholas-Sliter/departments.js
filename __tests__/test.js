@@ -13,4 +13,15 @@ test("Departments scrape", async () => {
 });
 
 
+
+test("Prefix Character test", async () => {
+  const S = new Scraper('F21', "_");
+  await S.init();
+  const D = S.departments;
+
+  assert.is(D[55].code, "_ART");
+  
+  
+});
+
 test.run();

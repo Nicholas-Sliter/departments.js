@@ -7,12 +7,14 @@ export default class Department {
   code: string;
   name: string;
 
-  constructor(code: string, name: string) {
+  constructor(obj: {code: string, name: string}) {
+    const [code, name] = [...Object.values(obj)];
     this.code = code;
     this.name = name;
+
   }
 
-  static parseDepartmentHTML(el) {
+  static parseDepartmentHTML(el, prefixChar: string = " ") {
     const el_name: string = el.childNodes[0].rawText;
     let el_code: string = el.rawAttrs.substring(
       el.rawAttrs.length - 5,
@@ -22,10 +24,10 @@ export default class Department {
       el_code = "ART";
     }
 
-    const code = Department.parseCode(el_code);
+    const code = Department.parseCode(el_code, prefixChar);
     const name = Department.parseName(el_name);
 
-    return new Department(code, name);
+    return new Department({code, name});
   }
 
   private static parseCode(code: string, prefixChar: string = " ") {
