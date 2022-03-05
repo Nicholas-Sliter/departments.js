@@ -8,7 +8,10 @@ Use it like this
 import { Scraper } from 'departments.js';
 
 const season = "F21"; //Fall 2021
-const S = new Scraper(season);
+
+//an optional custom prefix padding for department names which are not 4 characters long, default is " ".
+const prefixChar = "_";
+const S = new Scraper(season, prefixChar);
 
 async () => {
   await S.init();
